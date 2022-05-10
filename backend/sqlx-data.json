@@ -1,0 +1,1989 @@
+{
+  "db": "PostgreSQL",
+  "00de97e76b427e911dfe40a9e0571d456b45f54e2494910e99ef8fb88b7827b4": {
+    "query": "SELECT * FROM usr where username = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "email",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "username",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "is_admin",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 3,
+          "name": "created_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 4,
+          "name": "last_accessed_at",
+          "type_info": "Timestamptz"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "0497bf69217e4d06d1023579701fb080d83fffbe184758e60cb4c9033498e17d": {
+    "query": "SELECT path, null::JSONB as value, description, resource_type, extra_perms FROM resource ORDER BY path",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "value",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 2,
+          "name": "description",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 3,
+          "name": "resource_type",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false,
+        null,
+        true,
+        false,
+        false
+      ]
+    }
+  },
+  "05058633b35490408e17428bca8bd346441227d242d9a1cd64ff4b92703d8701": {
+    "query": "SELECT email FROM usr where username = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "email",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "071309125aba7880fe050a0ec1fb32c9882ab0f94e9f7cffd2324c565ff960af": {
+    "query": "UPDATE queue SET canceled = true, canceled_by = $1, canceled_reason = $2 WHERE id = $3 AND schedule_path IS NULL RETURNING id",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Text",
+          "Uuid"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "09f149b5648c311e0d9c29886eeaef17a66743be8d72614c4c203bc72f8c9183": {
+    "query": "INSERT INTO usr_to_group VALUES ($1, $2)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "0f677a6ea2a3235188374ae38dfb52da6eade48d445bddfe9f363018e5d1851f": {
+    "query": "SELECT hash FROM script WHERE parent_hashes[1] = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "hash",
+          "type_info": "Int8"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "122090a0f89e5248a0a0f199ebd24582fdb302883aebd2da187ac0084e767ea3": {
+    "query": "SELECT set_config('session.pgroups', $1, true)",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "set_config",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        null
+      ]
+    }
+  },
+  "1499eb93d9b637b552f0fb893c536cfc1e5a8750e9feab2dd481d8c7af8b8983": {
+    "query": "UPDATE pipenv SET pipfile_lock = $1 WHERE id = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Int4"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "15979918dd88786cd91fd9f2570865b9dd0e884b1c3e48f76ad85470f63611c7": {
+    "query": "SELECT * from usr",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "email",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "username",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "is_admin",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 3,
+          "name": "created_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 4,
+          "name": "last_accessed_at",
+          "type_info": "Timestamptz"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "1799cecc12bfec2fc7e07cb83b17e737a8910b43c17807f327a7e85ab8966eda": {
+    "query": "DELETE FROM token WHERE owner = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "1ad8677694aca94ee0e6da287d7cc028dcf673583a0e3e4fedd0e5d6766c5860": {
+    "query": "DELETE FROM usr WHERE email = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "1aff1ce8c84377f70e007107465907270d113e611473c5a772ca4b093e4ed0e7": {
+    "query": "DELETE FROM usr_to_group WHERE group_ = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "1b3d50c295454b1b9df6ea06f52acc4d3141ba2b8fa11347ea34e0e84cc8b242": {
+    "query": "select path from script where hash = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "1e2726cb00ce7ac296c91f2ea7547ce587462b7f4acf9ac65ba03b1c5e286146": {
+    "query": "INSERT INTO resource\n            (path, value, description, resource_type)\n            VALUES ($1, $2, $3, $4)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Jsonb",
+          "Text",
+          "Varchar"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "1f9b4a386e4199875725c6a8e56ab0ff8f9f92e57a1efd1f6ac8995e7a440623": {
+    "query": "SELECT * FROM schedule WHERE path = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "edited_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "edited_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "schedule",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "enabled",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 5,
+          "name": "script_path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 6,
+          "name": "script_hash",
+          "type_info": "Int8"
+        },
+        {
+          "ordinal": 7,
+          "name": "args",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 8,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  "230d58732a08164268ca10d248a93cced646632a76864b693ed2325d85b36c45": {
+    "query": "SELECT canceled FROM queue WHERE id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "canceled",
+          "type_info": "Bool"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "25d02dc4a33f6c667f3dc4d814942e8f38cbcc642500baef2a8c94c09989a43a": {
+    "query": "DELETE FROM usr_to_group WHERE usr = $1 AND group_ = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "27130cb1fc3c018a142762fb27266be22fea39f219d9b4ff9ce9a92668a8fecb": {
+    "query": "INSERT INTO resource_type\n            (name, schema, description)\n            VALUES ($1, $2, $3)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Jsonb",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "32d877f9dbe97690aa0d91891f3278018c0b0c4e65a40d06507a5c3731c957d3": {
+    "query": "SELECT SUM(duration) FROM completed_job WHERE created_by = $1 AND created_at > NOW() - INTERVAL '1200 seconds';",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "sum",
+          "type_info": "Int8"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        null
+      ]
+    }
+  },
+  "3711edb77b18f53e5f67247259146dbac06386fde3c0ac346b5b495538149d6b": {
+    "query": "SELECT  usr.username  \n            FROM usr_to_group LEFT JOIN usr ON usr_to_group.usr = usr.username \n            WHERE group_ = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "username",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "3f64821b55076d253425c9b16a7773a65a36f550a7c6f9a09e0cf76ebf6822b7": {
+    "query": "DELETE FROM resource_type WHERE name = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "474d205c052576c8c67840b008df1c0e02a5bda62d940ca5c6e6dc6cb48ad5d4": {
+    "query": "SELECT password_hash FROM password WHERE email = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "password_hash",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "486f181a9ced2bdc7c8d93da22c9d3e229ef106174bff2c472dbe82622f382b6": {
+    "query": "UPDATE queue SET logs = concat(logs, $1::text) WHERE id = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Uuid"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "4c78247896ed01f78db1b5088c19f7a6a8f3f41d3327cd88a1f6f106d165f8db": {
+    "query": "SELECT * from resource_type WHERE name = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "name",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "schema",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 2,
+          "name": "description",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        true,
+        true
+      ]
+    }
+  },
+  "553b0e944b1664877f37d5abc80c6821cc57f2872cdbab8fdf2b7e25b4e25da1": {
+    "query": "UPDATE schedule SET enabled = $1 WHERE path = $2 RETURNING *",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "edited_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "edited_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "schedule",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "enabled",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 5,
+          "name": "script_path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 6,
+          "name": "script_hash",
+          "type_info": "Int8"
+        },
+        {
+          "ordinal": 7,
+          "name": "args",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 8,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Bool",
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  "55791aa3729b7552d7f7534b3787dd59b16d1dda10e15f924bc6bde9e395763e": {
+    "query": "INSERT INTO completed_job\n            (id, parent_job, created_by, created_at, duration, success, script_hash, script_path, args, result, logs, \n            raw_code, canceled, canceled_by, canceled_reason, scheduled, job_kind, env_id, schedule_path, permissioned_as)\n            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING id",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Uuid",
+          "Varchar",
+          "Timestamptz",
+          "Int4",
+          "Bool",
+          "Int8",
+          "Varchar",
+          "Jsonb",
+          "Jsonb",
+          "Text",
+          "Text",
+          "Bool",
+          "Varchar",
+          "Text",
+          "Bool",
+          {
+            "Custom": {
+              "name": "job_kind",
+              "kind": {
+                "Enum": [
+                  "script",
+                  "preview",
+                  "dependencies"
+                ]
+              }
+            }
+          },
+          "Int4",
+          "Varchar",
+          "Varchar"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "5714afb9fd49f0fdaaf9ad4bb68cef7280ae30f972e979876d5a5895814a00e5": {
+    "query": "DELETE FROM variable WHERE path = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "5730849403be1cf3b901353ce210f4fb1b799862a384bf2446015d023e5f9fec": {
+    "query": "SELECT username from usr",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "username",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "613520f469fda25abbb9702ff318614e83e15e82e8b374f89507541cc17e2f39": {
+    "query": "UPDATE worker_ping SET ping_at = $1, env_id = $2, jobs_executed = $3 WHERE worker = $4",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Timestamptz",
+          "Int4",
+          "Int4",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "6199e8be5cb13db71108e555ea20f0b76dc38476670f9fc0667b057d2766d42e": {
+    "query": "SELECT set_config('session.groups', $1, true)",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "set_config",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        null
+      ]
+    }
+  },
+  "61d3302af058fb9a8a17b98d50d19c38f14fe50d7de9cd379753468d3c84f022": {
+    "query": "INSERT INTO password\n            (email, password_hash)\n            VALUES ($1, $2)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "6632dad9f0ec0ef0eb615d58158ac5c8ca5dc1ff48cee1d065810ee68632ab34": {
+    "query": "INSERT INTO token\n            (token, owner, label, expiration)\n            VALUES ($1, $2, $3, $4)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Varchar",
+          "Timestamptz"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "6c90d5ea2a09b47b81fdab465062c25f8768b220e53bf469550a3a3697ab756a": {
+    "query": "SELECT set_config('session.user', $1, true)",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "set_config",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        null
+      ]
+    }
+  },
+  "6eacfedfc1ab2431c318996d2ff480a65d55fc43d8fa95aa4e2e8430722dc82d": {
+    "query": "SELECT email FROM usr WHERE username = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "email",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "6fc2cfae9df83eb24ea33e4c9567740100f4dd2285afc3ef474fc70041b0567b": {
+    "query": "SELECT * FROM worker_ping ORDER BY ping_at desc LIMIT $1 OFFSET $2",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "worker",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "worker_instance",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "ping_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "started_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 4,
+          "name": "env_id",
+          "type_info": "Int4"
+        },
+        {
+          "ordinal": 5,
+          "name": "ip",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 6,
+          "name": "jobs_executed",
+          "type_info": "Int4"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "70deb0336cc13bc251aad9a8d64143e65295bec83a0689c52b52bab30b034627": {
+    "query": "SELECT label, concat(substring(token for 10)) as token_prefix, expiration FROM token WHERE user = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "label",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "token_prefix",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 2,
+          "name": "expiration",
+          "type_info": "Timestamptz"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Name"
+        ]
+      },
+      "nullable": [
+        true,
+        null,
+        true
+      ]
+    }
+  },
+  "776bf312604ace09a5f74bc8b03c2379b5ffb7734d6fd2842ef9251ef986cadb": {
+    "query": "SELECT token FROM token WHERE owner = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "token",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "79140e1da2a85415f42f818a9a517640e63e8b2612756f35246e02bac6bd3c5d": {
+    "query": "INSERT INTO pipenv\n            (created_by, python_version, dependencies)\n            VALUES ($1, $2, $3) RETURNING id",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Int4"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "VarcharArray"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "81c5515dead7a183591712eff226d672239905898a29ddcb20c5bfaf25009a64": {
+    "query": "INSERT INTO group_ VALUES ($1, $2)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "8405574f2fefa0b7da5c2ff3676b46bf669becfb289c88da8b1e9f34e11183de": {
+    "query": "SELECT * from variable ORDER BY path",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "value",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "is_secret",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 3,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "847fe522a4c129ab9a82b822a8f7ecb5b4c9ed7c03015a8dfe5bff1aa53d7844": {
+    "query": "UPDATE pipenv SET job_id = $1 WHERE id = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Int4"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "84e62e7bd706785611e8d6545ed3b0d4b8292352b9c0073cff0f503079a1941b": {
+    "query": "UPDATE script SET archived = true WHERE hash = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "858e1893a2d36a85521f2c2189e5f0c4861f960349aa9c85d73e4e0442958ce4": {
+    "query": "SELECT id, timestamp, created_by, python_version, dependencies, CAST (((pipfile_lock <> '') IS TRUE) AS TEXT) as pipfile_lock, job_id FROM pipenv ORDER BY id desc LIMIT $1 OFFSET $2",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Int4"
+        },
+        {
+          "ordinal": 1,
+          "name": "timestamp",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 2,
+          "name": "created_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 3,
+          "name": "python_version",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "dependencies",
+          "type_info": "VarcharArray"
+        },
+        {
+          "ordinal": 5,
+          "name": "pipfile_lock",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 6,
+          "name": "job_id",
+          "type_info": "Uuid"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        null,
+        true
+      ]
+    }
+  },
+  "902961f15b8c7603dddf2933b5fc7cdd6e5af3545835763ccb29cdf3ac273ef0": {
+    "query": "UPDATE password SET password_hash = $1 WHERE email = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "930d0062c738dae9daac7087890587575b38c735fdc68a5b9b4b0bd191f54589": {
+    "query": "SELECT * FROM pipenv WHERE id = (select max(id) from pipenv)",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Int4"
+        },
+        {
+          "ordinal": 1,
+          "name": "timestamp",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 2,
+          "name": "created_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 3,
+          "name": "python_version",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "dependencies",
+          "type_info": "VarcharArray"
+        },
+        {
+          "ordinal": 5,
+          "name": "pipfile_lock",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 6,
+          "name": "job_id",
+          "type_info": "Uuid"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true
+      ]
+    }
+  },
+  "94c918128bcf486e93f32d410b8b24e2261cc8331a6aaf3e6e110c8afa790683": {
+    "query": "SELECT * FROM group_ WHERE name = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "name",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "summary",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 2,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        true,
+        false
+      ]
+    }
+  },
+  "9568bec3e5efd80255934e95298a8b2d4384043880e4085aa0ebbff85381c3f6": {
+    "query": "select hash from script where path = $1 AND \n    created_at = (SELECT max(created_at) FROM script WHERE path = $1) AND\n    deleted = false",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "hash",
+          "type_info": "Int8"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "97c6791738e3e5e6360bfb872b223c6b49ac3019ba3a74f8117d3e1fc2eb9e84": {
+    "query": "INSERT INTO queue\n            (id, parent_job, created_by, permissioned_as, scheduled_for, \n                script_hash, script_path, raw_code, args, scheduled, job_kind, env_id, schedule_path)\n            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING id",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Uuid",
+          "Varchar",
+          "Varchar",
+          "Timestamptz",
+          "Int8",
+          "Varchar",
+          "Text",
+          "Jsonb",
+          "Bool",
+          {
+            "Custom": {
+              "name": "job_kind",
+              "kind": {
+                "Enum": [
+                  "script",
+                  "preview",
+                  "dependencies"
+                ]
+              }
+            }
+          },
+          "Int4",
+          "Varchar"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "9b4e3297ad6b30c6fb4bfeb5f5805a7fc92e86bbfd3f57ba663bb0afd153322d": {
+    "query": "SELECT is_admin FROM usr where username = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "is_admin",
+          "type_info": "Bool"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "9e4e2f2f7ebd8d95c2118e6fc6e9b7a74b74e60f280b9ad4a223d68a494108c9": {
+    "query": "SELECT * FROM pipenv WHERE id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Int4"
+        },
+        {
+          "ordinal": 1,
+          "name": "timestamp",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 2,
+          "name": "created_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 3,
+          "name": "python_version",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "dependencies",
+          "type_info": "VarcharArray"
+        },
+        {
+          "ordinal": 5,
+          "name": "pipfile_lock",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 6,
+          "name": "job_id",
+          "type_info": "Uuid"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true
+      ]
+    }
+  },
+  "a1d46b44718a63d6ce5a9054d493dadbffb205500dc8fb55e9816bcdb613e0d5": {
+    "query": "DELETE FROM queue WHERE schedule_path = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "a47f80e95d97b4b31adfbfb627898ea862eeacedb957344c6a99f18c123966c0": {
+    "query": "INSERT INTO script (hash, path, parent_hashes, summary, description, content, created_by, schema, is_template, extra_perms) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Varchar",
+          "Int8Array",
+          "Text",
+          "Text",
+          "Text",
+          "Varchar",
+          "Jsonb",
+          "Bool",
+          "Jsonb"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "a4cba3f9290c16daf5d391b6db96adeb171f4e5875bf0b942b7559873802887d": {
+    "query": "SELECT group_ FROM usr_to_group where usr = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "group_",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "a5a9f8e3c61607db25539acd13816e251c76f163d9ae405d341e5ca4c1c3d57f": {
+    "query": "UPDATE queue SET env_id = $1 WHERE id = ANY($2) AND job_kind <> 'dependencies'",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "UuidArray"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "a86ac82eb9fdf47968e6d40b480d4430f69a97d318f004ab5604704ebfe8994a": {
+    "query": "UPDATE group_ SET summary = $1 WHERE name = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "ab5fcb7a74fd518aad749a0305877f9083e903fdf6eecbabdb88c9bfd5b16b91": {
+    "query": "INSERT INTO usr\n            (email, username, is_admin)\n            VALUES ($1, $2, $3)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Bool"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "ae16271abcfc813a1aab495179a4a8e5028fa5b451a00923f0bb038c3b9b516e": {
+    "query": "SELECT id FROM pipenv WHERE id = (select max(id) from pipenv WHERE pipfile_lock IS NOT NULL)",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Int4"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "b445a607dd9d7691ea10243f24bd0294be4fb4fee8636582279003d7778a0bd4": {
+    "query": "SELECT COUNT(id) FROM queue WHERE created_by = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "count",
+          "type_info": "Int8"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        null
+      ]
+    }
+  },
+  "b60341ebf1a5b05cd661220b58c7a04cac557235519fe5c136854be1a2e4432d": {
+    "query": "UPDATE script SET archived = true WHERE path = $1 RETURNING hash",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "hash",
+          "type_info": "Int8"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "b8644e1ca0204bf2f7ab727cb421615ecfadd401dddfe77568fc2c4c040f562b": {
+    "query": "SELECT 1 FROM script WHERE hash = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "?column?",
+          "type_info": "Int4"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      },
+      "nullable": [
+        null
+      ]
+    }
+  },
+  "b953a32bcae7a0d90a20572d184f529b8963520e491d183528c87dd86b6f87fc": {
+    "query": "SELECT * from variable WHERE path = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "value",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "is_secret",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 3,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "bbdc450ccd4ef050948821b767d0457484550e379c9e8e7eb56042735a19ddfb": {
+    "query": "DELETE FROM resource WHERE path = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "c0445dfc7d1bd560fcf87881c6fd38cab77a12c1ffab26f23e1d1071302cda6a": {
+    "query": "SELECT * FROM group_ ORDER BY name desc LIMIT $1 OFFSET $2",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "name",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "summary",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 2,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false,
+        true,
+        false
+      ]
+    }
+  },
+  "c68276c99db232b621649fc76081ed93c9fa4d95facfcce95517549e378e3eaf": {
+    "query": "SELECT * FROM schedule ORDER BY edited_at desc LIMIT $1 OFFSET $2",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "edited_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "edited_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "schedule",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "enabled",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 5,
+          "name": "script_path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 6,
+          "name": "script_hash",
+          "type_info": "Int8"
+        },
+        {
+          "ordinal": 7,
+          "name": "args",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 8,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Int8",
+          "Int8"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  "d10f8cd98187fc17ec612522cb88aad3ad5da8f475833bf1ce38695cbfc9dc23": {
+    "query": "INSERT INTO usr_to_group (usr, group_) VALUES ($1, $2)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "d54f605817371e54f494e8161d14a51c8ad3e0c4718bd641f4c5b98e22041ad9": {
+    "query": "INSERT INTO variable\n            (path, value, is_secret)\n            VALUES ($1, $2, $3)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Bool"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "d6ad97fd8c966f62efb0a1bb009325d2a47ae218be340da14a0ae8b39614a9ae": {
+    "query": "INSERT INTO schedule (path, schedule, edited_by, script_path, script_hash, args) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "edited_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "edited_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "schedule",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "enabled",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 5,
+          "name": "script_path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 6,
+          "name": "script_hash",
+          "type_info": "Int8"
+        },
+        {
+          "ordinal": 7,
+          "name": "args",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 8,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Varchar",
+          "Varchar",
+          "Int8",
+          "Jsonb"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  "db6b136bafd6d1f358e3f9ec81791040d59630e9c77e26c3a74365b1faa3e0b4": {
+    "query": "UPDATE schedule SET schedule = $1, script_path = $2, script_hash = $3, args = $4 WHERE path = $5 RETURNING *",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "edited_by",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 2,
+          "name": "edited_at",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "schedule",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "enabled",
+          "type_info": "Bool"
+        },
+        {
+          "ordinal": 5,
+          "name": "script_path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 6,
+          "name": "script_hash",
+          "type_info": "Int8"
+        },
+        {
+          "ordinal": 7,
+          "name": "args",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 8,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Int8",
+          "Jsonb",
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  "deab8c0396e0f7108aa84e095dd640a26de81c58b2b4c5782e1f750944bcbc91": {
+    "query": "DELETE FROM queue WHERE id = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "e05c4dc8a47adca1cf8a0ec83760c6cc368467c742a73f4b26758d730384922e": {
+    "query": "DELETE FROM group_ WHERE name = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "e838b15953b567af2a2da6a4e3a04add5ec2cacabd93171a97c5fc978a64f8aa": {
+    "query": "DELETE FROM password WHERE email = $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "e94abd39ec51b7e0c48c190d47ed766fd4f401187c3b60b3e599426c95232f7f": {
+    "query": "UPDATE queue SET last_ping = $1 WHERE id = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Timestamptz",
+          "Uuid"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "eb1f7f01461f5a7540c273b37e5d578c31cf151ab3ef813f7aada76533761e12": {
+    "query": "SELECT * from resource_type ORDER BY name",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "name",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "schema",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 2,
+          "name": "description",
+          "type_info": "Text"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false,
+        true,
+        true
+      ]
+    }
+  },
+  "ecbd78f4257ce111aa13efca7fc83b5c87f350fb232738e4f44c5b8a62e362dc": {
+    "query": "SELECT * from resource WHERE path = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "path",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 1,
+          "name": "value",
+          "type_info": "Jsonb"
+        },
+        {
+          "ordinal": 2,
+          "name": "description",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 3,
+          "name": "resource_type",
+          "type_info": "Varchar"
+        },
+        {
+          "ordinal": 4,
+          "name": "extra_perms",
+          "type_info": "Jsonb"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ]
+    }
+  },
+  "f84b15024e5cd1b656a24e0df7d8d13645f52573ae8901552641876424e3ac26": {
+    "query": "SELECT owner FROM token WHERE token = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "owner",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "f98046a2ee4ac10d9e507c033391dfb0c704dcd513d8b1e5564def4e85f9e80b": {
+    "query": "INSERT INTO worker_ping (worker_instance, worker, ip) VALUES ($1, $2, $3)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          "Varchar"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "fa28bb23f10b724567b9aae5ce8111120a6b89b0c8cf2cd330124851a0af289c": {
+    "query": "UPDATE usr\n            SET last_accessed_at = $1\n            where username = $2",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Timestamptz",
+          "Text"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "fc9cec92530f7daeef36314b2d64863ab1f65b44639baf9969f9e4f6fb229701": {
+    "query": "SELECT name FROM group_ ORDER BY name desc",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "name",
+          "type_info": "Varchar"
+        }
+      ],
+      "parameters": {
+        "Left": []
+      },
+      "nullable": [
+        false
+      ]
+    }
+  },
+  "fe86969e6e5556f6ea68631208d9af5e842e692c630f295f2d5fe9d6ace1593b": {
+    "query": "UPDATE queue SET running = false WHERE last_ping < $1",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Timestamptz"
+        ]
+      },
+      "nullable": []
+    }
+  }
+}

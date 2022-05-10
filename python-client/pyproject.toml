@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "wmill"
+version = "0.9.0"
+description = "A client library for accessing Delightool server wrapping the Delightool client API"
+license = "Apache-2.0"
+homepage = "https://delightool.dev"
+documentation = "https://docs.delightool.dev"
+
+authors = ["Ruben Fiszel <ruben@rubenfiszel.com>"]
+
+readme = "README.md"
+packages = [
+    {include = "wmill"},
+]
+include = ["wmill/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+delightool-api-client = "^0.9.0"
+attrs = ">=20.1.0,<22.0.0"
+
+[build-system]
+requires = ["poetry>=1.0.2", "poetry-dynamic-versioning"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}+{{ distance }}.{{ commit }}{% endif %}"
+
+
+[tool.black]
+line-length = 120
+target_version = ['py36', 'py37', 'py38']
+exclude = '''
+(
+  /(
+    | \.git
+    | \.venv
+    | \.mypy_cache
+  )/
+)
+'''
+
+[tool.isort]
+line_length = 120
+profile = "black"
